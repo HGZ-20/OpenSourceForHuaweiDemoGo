@@ -1,0 +1,4 @@
+Name: user-api
+Host: 0.0.0.0
+Port: 8888
+DSN: "host=127.0.0.1 user=user password=password dbname=postgres port=8000 sslmode=disable TimeZone=Asia/Shanghai"
