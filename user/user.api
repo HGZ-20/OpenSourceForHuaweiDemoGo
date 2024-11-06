@@ -1,0 +1,58 @@
+syntax = "v1"
+
+type Request {
+	Name string `path:"name,options=you|me"`
+}
+
+type Response {
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+}
+
+type User {
+	Name     string `json:"name"`
+	Email    string `json:"email,optional"`
+	Age      int    `json:"age"`
+	Birthday string `json:"birthday,optional"`
+}
+
+type UpdateUser {
+	Id       int    `path:"id"`
+	Name     string `json:"name"`
+	Email    string `json:"email,optional"`
+	Age      int    `json:"age"`
+	Birthday string `json:"birthday,optional"`
+}
+
+type DelUser {
+	Id int `path:"id"`
+}
+
+type ListUser {
+	Name  string `json:"name,optional"`
+	Email string `json:"email,optional"`
+}
+
+type ListUserResponse {
+	Code    int           `json:"code"`
+	Message string        `json:"message"`
+	Data    []*UpdateUser `json:"data"`
+}
+
+service user-api {
+	@handler hello
+	get /hello/:name (Request) returns (Response)
+
+	@handler add
+	post /user/add (User) returns (Response)
+
+	@handler update
+	put /user/update/:id (UpdateUser) returns (Response)
+
+	@handler delete
+	delete /user/delete/:id (DelUser) returns (Response)
+
+	@handler list
+	post /user/list (ListUser) returns (ListUserResponse)
+}
+
