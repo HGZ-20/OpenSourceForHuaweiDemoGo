@@ -1,6 +1,4 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-gitee.com/okyer/gorm4gaussdb v0.0.0-20241105084305-5da2ef2162c3 h1:WpjpPGyb0EQha86DtKIwiEQ4R/BkmFC8QdgyNuCh5hQ=
-gitee.com/okyer/gorm4gaussdb v0.0.0-20241105084305-5da2ef2162c3/go.mod h1:QJMI2nP6gY/yUrtXr7C6d9MeICJJyO8an2ko2cPxtdA=
 gitee.com/opengauss/openGauss-connector-go-pq v1.0.4 h1:npfLM9/QpkmdK+XY9X2pcC2EX5gosyn/6dRDRd2sEJs=
 gitee.com/opengauss/openGauss-connector-go-pq v1.0.4/go.mod h1:2UEp+ug6ls6C0pLfZgBn7VBzBntFUzxJuy+6FlQ7qyI=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
@@ -81,6 +79,8 @@ github.com/mattn/go-isatty v0.0.20 h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWE
 github.com/mattn/go-isatty v0.0.20/go.mod h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y=
 github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 h1:C3w9PqII01/Oq1c1nUAm88MOHcQC9l5mIlSMApZMrHA=
 github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822/go.mod h1:+n7T8mK8HuQTcFwEeznm/DIxMOiR9yIdICNftLE1DvQ=
+github.com/okyer/gorm4gaussdb v0.0.0-20241108062657-5c0f0f378b24 h1:rp+9lW/7S+23TolN1OHUQsUXhRuehGYsWkvdP9rczVU=
+github.com/okyer/gorm4gaussdb v0.0.0-20241108062657-5c0f0f378b24/go.mod h1:NXizixebnmdx1FeNY7X/HAS82s5ONoYPzzDbI09lZVo=
 github.com/openzipkin/zipkin-go v0.4.3 h1:9EGwpqkgnwdEIJ+Od7QVSEIH+ocmm5nPat0G7sjsSdg=
 github.com/openzipkin/zipkin-go v0.4.3/go.mod h1:M9wCJZFWCo2RiY+o1eBCEMe0Dp2S5LDHcMZmk3RmK7c=
 github.com/pelletier/go-toml/v2 v2.2.2 h1:aYUidT7k73Pcl9nb2gScu7NSrKCSHIDE89b3+6Wq+LM=

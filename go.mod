@@ -3,7 +3,7 @@ module gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo
 go 1.23.2
 
 require (
-	gitee.com/okyer/gorm4gaussdb v0.0.0-20241105084305-5da2ef2162c3
+	github.com/okyer/gorm4gaussdb v0.0.0-20241108062657-5c0f0f378b24
 	github.com/zeromicro/go-zero v1.7.3
 	gorm.io/gorm v1.25.12
 )

@@ -2,7 +2,7 @@ package svc
 
 import (
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/user/internal/config"
-	gaussdb "gitee.com/okyer/gorm4gaussdb"
+	gaussdb "github.com/okyer/gorm4gaussdb"
 	"gorm.io/gorm"
 )
 
