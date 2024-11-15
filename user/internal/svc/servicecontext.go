@@ -2,7 +2,9 @@ package svc
 
 import (
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/user/internal/config"
-	gaussdb "github.com/okyer/gorm4gaussdb"
+	_ "gitee.com/opengauss/openGauss-connector-go-pq"
+
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -12,7 +14,7 @@ type ServiceContext struct {
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
-	db, err := gorm.Open(gaussdb.Open(c.DSN), &gorm.Config{})
+	db, err := gorm.Open(postgres.New(postgres.Config{DriverName: "postgres", DSN: c.DSN}), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
