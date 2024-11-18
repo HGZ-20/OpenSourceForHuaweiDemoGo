@@ -28,4 +28,4 @@ COPY --from=builder /app/user /app/user
 COPY --from=builder /app/etc /app/etc
 COPY --from=builder /app/openGauss-connector-go-pq /app/openGauss-connector-go-pq
 
-CMD ["./user", "-f", "etc/demo-api.yaml"]
+CMD ["./user", "-f", "etc/user-api.yaml"]
