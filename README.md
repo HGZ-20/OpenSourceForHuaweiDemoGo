@@ -14,6 +14,8 @@ go run user.go
 
 参考：https://gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiWiki/blob/main/zh_CN/docs/cicd-pipeline.md
 
+![Arch](arch.png)
+
 使用华为云 CodeArts 通过编译构建任务，将软件的源代码编译成镜像，并把镜像推送归档到容器镜像服务（SWR）中。
 
 1. 打开 持续交付 -> 编译构建 -> 新建任务，配置构建任务
