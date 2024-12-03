@@ -61,4 +61,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-replace gitee.com/opengauss/openGauss-connector-go-pq => ./openGauss-connector-go-pq
+// replace gitee.com/opengauss/openGauss-connector-go-pq => ./openGauss-connector-go-pq
