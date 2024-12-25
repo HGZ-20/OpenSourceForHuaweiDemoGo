@@ -14,11 +14,11 @@ type Config struct {
 		LogDir              string
 		CacheDir            string
 		TimeoutMs           uint64
-	}
+	} `json:"Nacos"` 
 
 	GaussDB struct {
 		DataSource string `json:",env=DataSource"`
-	}
+	} `json:"GaussDB"`
 	Jwt struct {
 		AccessSecret string
 		AccessExpire int64
