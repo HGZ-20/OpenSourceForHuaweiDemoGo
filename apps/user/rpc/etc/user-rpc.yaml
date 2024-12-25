@@ -8,7 +8,7 @@ Mode: dev
 
 # Nacos配置
 Nacos:
-  Ip: 127.0.0.1
+  # Ip: 127.0.0.1
   Port: 8848
   NamespaceId: public
   NotLoadCacheAtStart: true
@@ -19,7 +19,7 @@ Nacos:
 
 # 数据库配置
 GaussDB:
-  DataSource: postgres://user:password@host:port/db_name?sslmode=disable
+  # DataSource: postgres://user:password@host:port/db_name?sslmode=disable
 
 Jwt:
   AccessSecret: qixia1998

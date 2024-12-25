@@ -7,6 +7,7 @@ import (
 
 type Config struct {
 	rest.RestConf
+	Target  string `json:",env=Target"`
 	JwtAuth struct {
 		AccessSecret string
 		AccessExpire int64

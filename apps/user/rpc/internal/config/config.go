@@ -6,7 +6,7 @@ type Config struct {
 	zrpc.RpcServerConf
 
 	Nacos struct {
-		IP                  string
+		IP                  string  `json:",env=IP"`
 		Port                uint64
 		NamespaceId         string
 		NotLoadCacheAtStart bool
@@ -17,7 +17,7 @@ type Config struct {
 	}
 
 	GaussDB struct {
-		DataSource string
+		DataSource string `json:",env=DataSource"`
 	}
 	Jwt struct {
 		AccessSecret string
