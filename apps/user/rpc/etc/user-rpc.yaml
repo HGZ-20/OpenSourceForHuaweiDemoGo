@@ -7,18 +7,19 @@ Mode: dev
 #  Key: user.rpc
 
 # Nacos配置
-# Ip: 127.0.0.1
-Port: 8848
-NamespaceId: public
-NotLoadCacheAtStart: true
-LogLevel: debug
-TimeoutMs: 5000
-LogDir: /tmp/nacos/log
-CacheDir: /tmp/nacos/cache
+Nacos:
+  IP: 127.0.0.1
+  Port: 8848
+  NamespaceId: public
+  NotLoadCacheAtStart: true
+  LogLevel: debug
+  TimeoutMs: 5000
+  LogDir: /tmp/nacos/log
+  CacheDir: /tmp/nacos/cache
 
 # 数据库配置
-#GaussDB:
-# DataSource: postgres://user:password@host:port/db_name?sslmode=disable
+GaussDB:
+   DataSource: postgres://user:password@host:port/db_name?sslmode=disable
 
 Jwt:
   AccessSecret: qixia1998

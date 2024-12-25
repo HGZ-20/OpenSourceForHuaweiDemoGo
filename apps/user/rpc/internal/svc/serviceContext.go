@@ -16,7 +16,7 @@ type ServiceContext struct {
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
-	conn := sqlx.NewSqlConn("opengauss", c.DataSource)
+	conn := sqlx.NewSqlConn("opengauss", c.GaussDB.DataSource)
 
 	return &ServiceContext{
 		Config:    c,

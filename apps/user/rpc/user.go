@@ -38,16 +38,16 @@ func main() {
 
 	// register service to nacos
 	sc := []constant.ServerConfig{
-		*constant.NewServerConfig(c.IP, c.Port),
+		*constant.NewServerConfig(c.Nacos.IP, c.Nacos.Port),
 	}
 
 	cc := &constant.ClientConfig{
-		NamespaceId:         c.NamespaceId,
-		TimeoutMs:           c.TimeoutMs,
-		NotLoadCacheAtStart: c.NotLoadCacheAtStart,
-		LogDir:              c.LogDir,
-		CacheDir:            c.CacheDir,
-		LogLevel:            c.LogLevel,
+		NamespaceId:         c.Nacos.NamespaceId,
+		TimeoutMs:           c.Nacos.TimeoutMs,
+		NotLoadCacheAtStart: c.Nacos.NotLoadCacheAtStart,
+		LogDir:              c.Nacos.LogDir,
+		CacheDir:            c.Nacos.CacheDir,
+		LogLevel:            c.Nacos.LogLevel,
 	}
 
 	opts := nacos.NewNacosConfig(c.RpcServerConf.Name, c.ListenOn, sc, cc)
