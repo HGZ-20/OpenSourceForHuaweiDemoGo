@@ -1,0 +1,77 @@
+syntax = "v1"
+
+info(
+    title: "user server object"
+    author: "yangjiaxin"
+)
+
+type User {
+    Id int64 `json:"id"`
+    Mobile string `json:"mobile"`
+    Name string `json:"name"`
+    Gender string `json:"gender"`
+}
+
+type (
+    HealthReq {
+        Ping string `json:"ping"`
+    }
+    HealthResp {
+        Pong string `json:"pong"`
+    }
+)
+
+type (
+    RegisterReq {
+        Mobile string `json:"mobile"`
+        Password string `json:"password"`
+        Name string `json:"name"`
+        Gender string `json:"gender,optional"`
+    }
+    RegisterResp {
+        Token string `json:"token"`
+        Expire int64 `json:"expire"`
+    }
+)
+
+type (
+    LoginReq {
+        Mobile string `json:"mobile"`
+        Password string `json:"password"`
+    }
+    LoginResp {
+        Token string `json:"token"`
+        Expire int64 `json:"expire"`
+    }
+)
+
+type (
+    UserInfoReq {
+        Id int64 `json:"id"`
+    }
+    UserInfoResp {
+        UserInfo User `json:"userInfo"`
+    }
+)
+
+type (
+    DeleteUserReq {
+        Id int64 `json:"id"`
+    }
+    DeleteUserResp {
+        status bool `json:"status"`
+    }
+)
+
+type (
+    UpdateUserReq {
+        Id int64 `json:"id"`
+        Name string `json:"name,optional"`
+        Mobile string `json:"mobile,optional"`
+        Password string `json:"password,optional"`
+        Gender string `json:"gender,optional"`
+    }
+    UpdateUserResp {
+        status bool `json:"status"`
+    }
+)

@@ -11,10 +11,11 @@ RUN apk update --no-cache && apk add --no-cache tzdata
 WORKDIR /build
 
 COPY . .
-COPY user/etc /app/etc
-COPY openGauss-connector-go-pq /app/openGauss-connector-go-pq
+COPY apps/user/api/etc /app/api/etc
+COPY apps/user/rpc/etc /app/rpc/etc
 RUN go mod download
-RUN go build -ldflags="-s -w" -o /app/user user/user.go
+RUN go build -ldflags="-s -w" -o /app/user/rpc apps/user/rpc/user.go
+RUN go build -ldflags="-s -w" -o /app/user/api apps/user/api/user.go
 
 
 FROM scratch
@@ -24,8 +25,13 @@ COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/S
 ENV TZ Asia/Shanghai
 
 WORKDIR /app
-COPY --from=builder /app/user /app/user
-COPY --from=builder /app/etc /app/etc
-COPY --from=builder /app/openGauss-connector-go-pq /app/openGauss-connector-go-pq
+COPY --from=builder /app/user /app/user/rpc
+COPY --from=builder /app/etc /app/rpc/etc
+
+CMD ["./user", "-f", "etc/user-rpc.yaml"]
+
+WORKDIR /app
+COPY --from=builder /app/user /app/user/api
+COPY --from=builder /app/etc /app/api/etc
 
 CMD ["./user", "-f", "etc/user-api.yaml"]

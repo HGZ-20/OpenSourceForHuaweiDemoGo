@@ -1,0 +1,53 @@
+syntax = "v1"
+
+info (
+	title:   "user-api"
+	desc:    "user api"
+	author:  "yangjiaxin"
+	version: "v1"
+)
+
+import (
+	"domain.api"
+)
+
+// -------------- user api v1 --------------
+// no need login
+@server (
+	prefix: v1/user
+	group:  user
+)
+service user {
+	@doc "健康检查"
+	@handler health
+	get /health (HealthReq) returns (HealthResp)
+
+	@doc "用户注册"
+	@handler register
+	post /register (RegisterReq) returns (RegisterResp)
+
+	@doc "用户登入"
+	@handler login
+	post /login (LoginReq) returns (LoginResp)
+}
+
+//need login
+@server (
+	prefix: v1/user
+	group:  user
+	jwt:    JwtAuth
+)
+service user {
+	@doc "获取用户信息"
+	@handler detail
+	get /info (UserInfoReq) returns (UserInfoResp)
+
+	@doc "修改用户信息"
+	@handler update
+	put /update (UpdateUserReq) returns (UpdateUserResp)
+
+	@doc "删除用户信息"
+	@handler del
+	delete /delete (DeleteUserReq) returns (DeleteUserResp)
+}
+
