@@ -16,9 +16,9 @@ cd OpenSourceForHuaweiDemoGo
 
 (2)或者使用环境变量 DataSource 配置；
 
-3.部署Nacos，分别在 rpc 和 api 中配置服务注册中心地址：
-(1)在项目配置文件中 apps/user/rpc/etc/user-rpc.yaml 修改 Nacos 配置；
-(2)在项目配置文件中 apps/user/api/etc/user-api.yaml 中的 UserRpc 修改 Target 中 nacos 的地址。
+3.部署Nacos，分别在 rpc 和 api 中配置服务注册中心地址：<br>
+(1)在项目配置文件中 apps/user/rpc/etc/user-rpc.yaml 修改 Nacos 配置；<br>
+(2)在项目配置文件中 apps/user/api/etc/user-api.yaml 中的 UserRpc 修改 Target 中 nacos 的地址。(可选) <br>
 
 4.运行示例： 
 

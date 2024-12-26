@@ -14,6 +14,17 @@ RPC_CONFIG = apps/user/rpc/etc/user.yaml
 .PHONY: all
 all: build
 
+# 无需编译运行 RPC 服务
+.PHONY: rpc-run
+rpc-run:
+	@echo "Running RPC service..."
+	$(RPC_OUTPUT)/$(APP).go -f $(RPC_CONFIG)
+
+.PHONY: api-run
+api-run:
+	@echo "Running API service..."
+	$(API_OUTPUT)/$(APP).go -f $(API_CONFIG)
+
 # 构建目标
 .PHONY: build
 build: build-api build-rpc
@@ -33,7 +44,7 @@ build-rpc:
 
 # 运行目标
 .PHONY: run
-run: run-api run-rpc
+run: run-rpc run-api
 
 # 运行 API 服务
 .PHONY: run-api
