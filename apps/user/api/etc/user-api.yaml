@@ -4,7 +4,8 @@ Port: 8888
 
 UserRpc:
   Timeout: -1
-  Target: ${RPC_TARGET}
+  # nacos://[user:passwd]@host/service?param=value'
+  Target: nacos://127.0.0.1:8848/nacos.rpc?namespaceid=public&timeout=5000s
 
 JwtAuth:
   AccessSecret: qixia1998
