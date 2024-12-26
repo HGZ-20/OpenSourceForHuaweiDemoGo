@@ -2,28 +2,46 @@ FROM golang:alpine AS builder
 
 LABEL stage=gobuilder
 
-ENV CGO_ENABLED 0
-ENV GOPROXY https://goproxy.cn,direct
+# 配置 Go 环境以启用交叉编译
+ENV CGO_ENABLED=0
+ENV GOARCH=arm64           
+ENV GOOS=linux             
+ENV GOPROXY=https://goproxy.cn,direct
+
+# 设置阿里云镜像源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
+# 安装所需的依赖和时区数据
 RUN apk update --no-cache && apk add --no-cache tzdata
 
+# 设置工作目录
 WORKDIR /build
 
+# 复制源码到构建镜像
 COPY . .
+
+# 复制配置文件
 COPY apps/user/api/etc /app/etc
 
+# 下载 Go 模块依赖
 RUN go mod download
+
+# 编译 Go 程序并输出二进制文件
 RUN go build -ldflags="-s -w" -o /app/user apps/user/api/user.go
 
-
+# 第二阶段：构建精简的运行时镜像
 FROM scratch
 
+# 复制必要的证书和时区文件
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/Shanghai
-ENV TZ Asia/Shanghai
+# 设置时区
+ENV TZ=Asia/Shanghai
 
+# 设置工作目录
 WORKDIR /app
+
+# 复制编译好的二进制文件和配置文件
 COPY --from=builder /app/user /app/user
 COPY --from=builder /app/etc /app/etc
 
