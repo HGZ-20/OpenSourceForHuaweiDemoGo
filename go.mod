@@ -1,6 +1,6 @@
 module gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo
 
-go 1.23
+go 1.22
 
 require (
 	gitee.com/opengauss/openGauss-connector-go-pq v1.0.7
