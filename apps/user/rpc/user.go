@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/internal/config"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/internal/server"
+	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
+	"github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/internal/svc"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/user"
 	"github.com/zeromicro/go-zero/core/conf"
@@ -12,6 +14,7 @@ import (
 	"github.com/zeromicro/go-zero/gateway"
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc/reflection"
+	_ "github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
 
 	"google.golang.org/grpc"
 )
