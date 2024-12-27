@@ -4,8 +4,8 @@ Mode: dev
 
 Gateway:
   Name: gateway
-  Host: localhost
-  Port: 8081
+  Host: 0.0.0.0
+  Port: 8888
   Upstreams:
     - Name: user.rpc
       Grpc:
