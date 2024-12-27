@@ -4,6 +4,8 @@ package user;
 
 option go_package = "./user";
 
+import "google/api/annotations.proto";
+
 message Request {
   string Ping = 1;
 }
@@ -77,10 +79,40 @@ message UpdateUserResp {
 // 更新用户
 
 service User {
-  rpc Ping(Request) returns(Response);
-  rpc Login(LoginReq) returns(LoginResp);
-  rpc Register(RegisterReq) returns(RegisterResp);
-  rpc UserInfo(UserInfoReq) returns(UserInfoResp);
-  rpc DeleteUser(DeleteUserReq) returns(DeleteUserResp);
-  rpc UpdateUser(UpdateUserReq) returns(UpdateUserResp);
+  rpc Ping(Request) returns(Response) {
+    option (google.api.http) = {
+      post: "/v1/user/ping"
+      body: "*"
+    };
+  }
+  rpc Login(LoginReq) returns(LoginResp) {
+    option (google.api.http) = {
+      post: "/v1/user/login"
+      body: "*"
+    };
+  }
+  rpc Register(RegisterReq) returns(RegisterResp) {
+    option (google.api.http) = {
+      post: "/v1/user/register"
+      body: "*"
+    };
+  }
+  rpc UserInfo(UserInfoReq) returns(UserInfoResp) {
+    option (google.api.http) = {
+      post: "/v1/user/info"
+      body: "*"
+    };
+  }
+  rpc DeleteUser(DeleteUserReq) returns(DeleteUserResp) {
+    option (google.api.http) = {
+      post: "/v1/user/delete"
+      body: "*"
+    };
+  }
+  rpc UpdateUser(UpdateUserReq) returns(UpdateUserResp) {
+    option (google.api.http) = {
+      post: "/v1/user/update"
+      body: "*"
+    };
+  }
 }

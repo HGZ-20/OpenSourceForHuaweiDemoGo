@@ -1,6 +1,9 @@
 package config
 
-import "github.com/zeromicro/go-zero/zrpc"
+import (
+	"github.com/zeromicro/go-zero/gateway"
+	"github.com/zeromicro/go-zero/zrpc"
+)
 
 type Config struct {
 	zrpc.RpcServerConf
@@ -24,5 +27,6 @@ type Config struct {
 		AccessExpire int64
 	}
 
-	Salt string
+	Salt    string
+	Gateway gateway.GatewayConf
 }

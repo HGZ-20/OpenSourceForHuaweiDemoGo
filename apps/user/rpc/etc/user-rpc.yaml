@@ -1,6 +1,18 @@
 Name: user.rpc
 ListenOn: 0.0.0.0:8080
 Mode: dev
+
+Gateway:
+  Name: gateway
+  Host: localhost
+  Port: 8081
+  Upstreams:
+    - Name: user.rpc
+      Grpc:
+        Endpoints:
+          - 0.0.0.0:8080
+      ProtoSets:
+        - ../apps/user/rpc/user.pb
 #Etcd:
 #  Hosts:
 #  - 127.0.0.1:2379

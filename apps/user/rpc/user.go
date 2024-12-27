@@ -52,8 +52,15 @@ func main() {
 
 	opts := nacos.NewNacosConfig(c.RpcServerConf.Name, c.ListenOn, sc, cc)
 	_ = nacos.RegisterService(opts)
-	defer s.Stop()
+
+	gw := gateway.MustNewServer(c.Gateway)
+	group := service.NewServiceGroup()
+	group.Add(s)
+	group.Add(gw)
+
+	defer group.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
-	s.Start()
+	fmt.Printf("Starting gateway at %s:%d...\n", c.Gateway.Host, c.Gateway.Port)
+	group.Start()
 }
