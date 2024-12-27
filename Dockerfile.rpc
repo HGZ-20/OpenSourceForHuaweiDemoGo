@@ -24,8 +24,9 @@ COPY . .
 COPY apps/user/rpc/etc /app/etc
 
 # 下载 Go 模块依赖
-RUN go mod download
 RUN go mod tidy
+RUN go mod download
+
 
 # 编译 Go 程序并输出二进制文件
 RUN go build -ldflags="-s -w" -o /app/user apps/user/rpc/user.go

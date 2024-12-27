@@ -3,20 +3,17 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
-	"github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
-
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/internal/config"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/internal/server"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/internal/svc"
 	"gitcode.com/HuaweiCloudDeveloper/OpenSourceForHuaweiDemoGo/apps/user/rpc/user"
-
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
+	"github.com/zeromicro/go-zero/gateway"
 	"github.com/zeromicro/go-zero/zrpc"
-	_ "github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
-	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+
+	"google.golang.org/grpc"
 )
 
 var configFile = flag.String("f", "etc/user.yaml", "the config file")
