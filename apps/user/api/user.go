@@ -10,7 +10,7 @@ import (
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
-	//_ "github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
+	_ "github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
 )
 
 var configFile = flag.String("f", "etc/user.yaml", "the config file")
