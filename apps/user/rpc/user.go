@@ -10,7 +10,6 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
-	"github.com/zeromicro/go-zero/gateway"
 	"github.com/zeromicro/go-zero/zrpc"
 	"github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
 	_ "github.com/zeromicro/zero-contrib/zrpc/registry/nacos"
@@ -53,14 +52,14 @@ func main() {
 	opts := nacos.NewNacosConfig(c.RpcServerConf.Name, c.ListenOn, sc, cc)
 	_ = nacos.RegisterService(opts)
 
-	gw := gateway.MustNewServer(c.Gateway)
-	group := service.NewServiceGroup()
-	group.Add(s)
-	group.Add(gw)
-
-	defer group.Stop()
+	//gw := gateway.MustNewServer(c.Gateway)
+	//group := service.NewServiceGroup()
+	//group.Add(s)
+	//group.Add(gw)
+	//
+	//defer group.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
-	fmt.Printf("Starting gateway at %s:%d...\n", c.Gateway.Host, c.Gateway.Port)
-	group.Start()
+	//fmt.Printf("Starting gateway at %s:%d...\n", c.Gateway.Host, c.Gateway.Port)
+	s.Start()
 }

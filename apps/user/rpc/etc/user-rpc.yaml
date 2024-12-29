@@ -2,16 +2,16 @@ Name: user.rpc
 ListenOn: 0.0.0.0:8080
 Mode: dev
 
-Gateway:
-  Name: gateway
-  Host: 0.0.0.0
-  Port: 8888
-  Upstreams:
-    - Name: user.rpc
-      Grpc:
-        Endpoints:
-          - 0.0.0.0:8080
-      ProtoSets:
+#Gateway:
+#  Name: gateway
+#  Host: 0.0.0.0
+#  Port: 8888
+#  Upstreams:
+#    - Name: user.rpc
+#      Grpc:
+#        Endpoints:
+#          - 0.0.0.0:8080
+#      ProtoSets:
 #        - user.pb
 #Etcd:
 #  Hosts:
