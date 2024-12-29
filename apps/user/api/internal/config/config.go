@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/zeromicro/go-zero/rest"
+	"github.com/zeromicro/go-zero/zrpc"
 )
 
 type Config struct {
@@ -11,7 +12,7 @@ type Config struct {
 		AccessSecret string
 		AccessExpire int64
 	}
-	UserRpc RpcClientConfig
+	UserRpc zrpc.RpcClientConf `json:",env=UserRpc"`
 	//Target   string             `json:",env=Target"`
 	//Endpoint string             `json:",env=Endpoint"`
 }
@@ -25,12 +26,12 @@ type RpcClientConfig struct {
 }
 
 // ToRpcClientConf 将包装后的配置转化为 zrpc.RpcClientConf
-//func (c *RpcClientConfig) ToRpcClientConf() zrpc.RpcClientConf {
-//	var endpoints []string
-//	endpoints = append(endpoints, c.Endpoint)
-//	return zrpc.RpcClientConf{
-//		Endpoints: endpoints,
-//		Target:    c.Target,
-//		Timeout:   c.Timeout,
-//	}
-//}
+func (c *RpcClientConfig) ToRpcClientConf() zrpc.RpcClientConf {
+	var endpoints []string
+	endpoints = append(endpoints, c.Endpoint)
+	return zrpc.RpcClientConf{
+		Endpoints: endpoints,
+		Target:    c.Target,
+		Timeout:   c.Timeout,
+	}
+}
