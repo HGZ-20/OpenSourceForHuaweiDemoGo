@@ -12,17 +12,17 @@ type Config struct {
 		AccessSecret string
 		AccessExpire int64
 	}
-	UserRpc  zrpc.RpcClientConf `json:",env=UserRpc""`
-	Target   string             `json:",env=Target"`
-	Endpoint string             `json:",env=Endpoint"`
+	UserRpc zrpc.RpcClientConf `json:",env=UserRpc""`
+	//Target   string             `json:",env=Target"`
+	//Endpoint string             `json:",env=Endpoint"`
 }
 
 // RpcClientConfig 用于包装zrpc.RpcClientConf并绑定环境变量
 type RpcClientConfig struct {
-	Etcd          string        `json:",env=Etcd"`
-	Endpoint      string        `json:",env=Endpoint"`
-	Target        string        `json:",env=Target"`
-	Timeout       int64         `json:",env=Timeout"`
+	//Etcd          string        `json:",env=Etcd"`
+	Endpoint string `json:",env=Endpoint"`
+	Target   string `json:",env=Target"`
+	Timeout  int64  `json:",env=Timeout"`
 }
 
 // ToRpcClientConf 将包装后的配置转化为 zrpc.RpcClientConf

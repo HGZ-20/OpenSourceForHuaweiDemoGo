@@ -12,7 +12,7 @@ Gateway:
         Endpoints:
           - 0.0.0.0:8080
       ProtoSets:
-        - ../apps/user/rpc/user.pb
+#        - user.pb
 #Etcd:
 #  Hosts:
 #  - 127.0.0.1:2379
