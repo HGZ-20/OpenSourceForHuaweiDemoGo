@@ -1,0 +1,42 @@
+Name: user.rpc
+ListenOn: 0.0.0.0:8080
+Mode: dev
+
+#Gateway:
+#  Name: gateway
+#  Host: 0.0.0.0
+#  Port: 8888
+#  Upstreams:
+#    - Name: user.rpc
+#      Grpc:
+#        Endpoints:
+#          - 0.0.0.0:8080
+#      ProtoSets:
+#        - user.pb
+#Etcd:
+#  Hosts:
+#  - 127.0.0.1:2379
+#  Key: user.rpc
+
+# Nacos配置
+Nacos:
+  IP: 127.0.0.1
+  Port: 8848
+  NamespaceId: public
+  NotLoadCacheAtStart: true
+  LogLevel: debug
+  TimeoutMs: 5000
+  LogDir: /tmp/nacos/log
+  CacheDir: /tmp/nacos/cache
+
+# 数据库配置
+GaussDB:
+   DataSource: postgres://user:password@host:port/db_name?sslmode=disable
+
+Jwt:
+  AccessSecret: qixia1998
+  AccessExpire: 86400
+
+Salt: HWVOFkGgPTryzICwd7qnJaZR9KQ2i8xe
+
+

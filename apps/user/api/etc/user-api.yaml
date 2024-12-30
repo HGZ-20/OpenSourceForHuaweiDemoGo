@@ -1,0 +1,13 @@
+Name: user.api
+Host: 0.0.0.0
+Port: 8888
+
+UserRpc:
+  Timeout: -1
+  # nacos://[user:passwd]@host/service?param=value'
+  Target: nacos://{NACOS_IP}:8848/user.rpc?namespaceid=public&timeout=5000s
+#  Endpoint: {RPC_IP}:8080
+
+JwtAuth:
+  AccessSecret: qixia1998
+  AccessExpire: 8640000
