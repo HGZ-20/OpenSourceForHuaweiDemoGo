@@ -6,7 +6,7 @@ UserRpc:
   Timeout: -1
   # nacos://[user:passwd]@host/service?param=value'
 #  Target: nacos://{NacosIP}:8848/user.rpc?namespaceid=public&timeout=5000s
-  Endpoint: user-rpc.default.svc.cluster.local:8080
+#  Endpoint: {RPC_IP}:8080
 
 JwtAuth:
   AccessSecret: qixia1998
