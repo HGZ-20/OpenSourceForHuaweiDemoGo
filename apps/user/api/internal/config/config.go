@@ -13,9 +13,6 @@ type Config struct {
 		AccessExpire int64
 	}
 	UserRpc zrpc.RpcClientConf
-	//UserRpc zrpc.RpcClientConf `json:",env=UserRpc"`
-	//Target   string             `json:",env=Target"`
-	//Endpoint string             `json:",env=Endpoint"`
 }
 
 // RpcClientConfig 用于包装zrpc.RpcClientConf并绑定环境变量

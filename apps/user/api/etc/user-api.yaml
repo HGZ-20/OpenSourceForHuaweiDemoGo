@@ -5,7 +5,7 @@ Port: 8888
 UserRpc:
   Timeout: -1
   # nacos://[user:passwd]@host/service?param=value'
-#  Target: nacos://127.0.0.1:8848/user.rpc?namespaceid=public&timeout=5000s
+  Target: nacos://{NACOS_IP}:8848/user.rpc?namespaceid=public&timeout=5000s
 #  Endpoint: {RPC_IP}:8080
 
 JwtAuth:

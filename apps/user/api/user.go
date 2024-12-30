@@ -23,18 +23,18 @@ func main() {
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
 
-	// 读取环境变量并更换为 Target
-	target := os.Getenv("Target")
-	if target == "" {
-		panic("Target environment variable is not set")
+	// 读取环境变量并替换 Target 中的占位符
+	nacosIP := os.Getenv("NACOS_IP")
+	if nacosIP == "" {
+		fmt.Errorf("NACOS_IP environment variable is not set")
 	}
 	// 读取环境变量并解析为 []string
 	endpointsStr := os.Getenv("ENDPOINTS")
 	if endpointsStr == "" {
-		panic("ENDPOINTS environment variable is not set")
+		fmt.Errorf("ENDPOINTS environment variable is not set")
 	}
 	c.UserRpc.Endpoints = strings.Split(endpointsStr, ",")
-	c.UserRpc.Target = target
+	c.UserRpc.Target = strings.Replace(c.UserRpc.Target, "{NACOS_IP}", nacosIP, 1)
 
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
